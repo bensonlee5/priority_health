@@ -1,0 +1,9 @@
+# excel
+*.xls
+*.xlsx
+*.csv
+
+# zipped data
+*.gz
+*.zip
+
