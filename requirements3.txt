@@ -45,3 +45,5 @@ s3fs
 tzlocal
 autopep8
 
+dash
+dash-daq

@@ -25,7 +25,7 @@ def calc_recency(df_input):
         else:
             df_recency = df_recency.merge(to_merge, on='patient_id', how='outer')
 
-    df_recency['cur_date'] = dt_cur
+    df_recency['cur_date'] = pd.to_datetime(dt_cur)
     for a in action_list:
         df_recency['{}_days_since'.format(a)] = (df_recency['cur_date'] - df_recency['{}_most_rec'.format(a)]).dt.days
         df_recency['{}_days_since'.format(a)].fillna(9999, inplace=True)
@@ -76,7 +76,11 @@ def merge_num_event(df_base, df_raw_input, event_type, recency):
         df_base['{0}_within_{1}_days'.format(event_type, recency)].fillna(0, inplace=True)
 
     return df_base
-    
+
+
+def create_dialer_order():
+    return NotImplementedError
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Generates call list for nurses')
