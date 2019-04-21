@@ -43,4 +43,5 @@ pyarrow
 pandas-compat
 s3fs
 tzlocal
+autopep8
 
